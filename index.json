@@ -1,8 +1,57 @@
 {
-  "name": "Sony PlayStation Portable",
-  "shortName": "psp",
-  "description": "PSP games via custom import",
-  "acceptedFilenameRegex": "^(.*)\\.(iso|cso|pbp)$",
-  "amStartArguments": "-n org.ppsspp.ppsspp/.PpssppActivity -a android.intent.action.VIEW -d {file.uri} --activity-clear-task --activity-clear-top --activity-no-history",
-  "uniqueId": "psp"
+  "databaseVersion": 14,
+  "revisionNumber": 14,
+  "platform": {
+    "name": "PlayStation Portable",
+    "uniqueId": "psp",
+    "shortname": "psp",
+    "description": "Sony's first handheld console, known for its high-quality graphics and diverse library.",
+    "acceptedFilenameRegex": "^(?!(?:\\._|\\.).*).*$",
+    "scraperSourceList": [
+      "LIBRETRO:Sony - PlayStation Portable",
+      "SCREEN_SCRAPER:61"
+    ],
+    "boxArtAspectRatioId": 2,
+    "useCustomBoxArtAspectRatio": false,
+    "customBoxArtAspectRatio": null,
+    "screenAspectRatioId": 1,
+    "useCustomScreenAspectRatio": false,
+    "customScreenAspectRatio": null,
+    "retroAchievementsConsoleIdList": [
+      41
+    ],
+    "extra": ""
+  },
+  "playerList": [
+    {
+      "name": "PPSSPP",
+      "uniqueId": "psp.ppsspp",
+      "description": "The definitive standalone PSP emulator.",
+      "acceptedFilenameRegex": "^(.*)\\.(?:iso|cso|pbp|elf)$",
+      "amStartArguments": "-n org.ppsspp.ppsspp/org.ppsspp.ppsspp.PpssppActivity\n -a android.intent.action.VIEW\n -d {file.path}",
+      "killPackageProcesses": true,
+      "killPackageProcessesWarning": true,
+      "extra": ""
+    },
+    {
+      "name": "PPSSPP Gold",
+      "uniqueId": "psp.ppssppgold",
+      "description": "Paid version of PPSSPP.",
+      "acceptedFilenameRegex": "^(.*)\\.(?:iso|cso|pbp|elf)$",
+      "amStartArguments": "-n org.ppsspp.ppssppgold/org.ppsspp.ppsspp.PpssppActivity\n -a android.intent.action.VIEW\n -d {file.path}",
+      "killPackageProcesses": true,
+      "killPackageProcessesWarning": true,
+      "extra": ""
+    },
+    {
+      "name": "psp - RetroArch 64 - ppms",
+      "uniqueId": "psp.ra64.ppms",
+      "description": "Supported extensions: iso, cso, pbp, elf.",
+      "acceptedFilenameRegex": "^(.*)\\.(?:iso|cso|pbp|elf)$",
+      "amStartArguments": "-n com.retroarch.aarch64/com.retroarch.browser.retroactivity.RetroActivityFuture\n -e ROM {file.path}\n -e LIBRETRO ppms\n -e CONFIGFILE /storage/emulated/0/Android/data/com.retroarch.aarch64/files/retroarch.cfg",
+      "killPackageProcesses": true,
+      "killPackageProcessesWarning": true,
+      "extra": ""
+    }
+  ]
 }
